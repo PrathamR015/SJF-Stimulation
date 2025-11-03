@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SJF CPU Scheduling Simulator - 23BCI0147</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>SJF CPU Scheduling Algorithm Simulator</h1>
+    <p class="subtitle">Process Scheduling</p>
+  </header>
+
+  <main>
+    <section id="input-section">
+      <h2>Input Process Details</h2>
+      <div class="form">
+        <label>Process ID:
+          <input type="text" id="pid" placeholder="P1" />
+        </label>
+        <label>Burst Time:
+          <input type="number" id="burst" placeholder="e.g. 6" min="1" />
+        </label>
+        <label>Arrival Time:
+          <input type="number" id="arrival" placeholder="e.g. 0" min="0" />
+        </label>
+        <button id="add-process">Add Process</button>
+        <button id="clear-processes" class="muted">Clear All</button>
+      </div>
+
+      <table id="process-table">
+        <thead>
+          <tr>
+            <th>PID</th>
+            <th>Burst</th>
+            <th>Arrival</th>
+            <th>Color</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+
+      <div class="actions">
+        <button id="start-btn" class="primary">Start Simulation</button>
+        <button id="reset-btn" class="muted">Reset Simulation</button>
+      </div>
+    </section>
+
+    <section id="animation-section">
+      <h2>Gantt Chart Visualization</h2>
+      <canvas id="ganttCanvas" width="1000" height="220"></canvas>
+
+      <div class="controls">
+    <button id="play">▶ Play</button>
+    <button id="pause">⏸ Pause</button>
+    <button id="step-back">⏪ Step Back</button>
+    <button id="step-forward">⏩ Step Forward</button>
+    <label>Speed:
+    <input type="range" id="speed" min="0.25" max="3" step="0.25" value="1" />
+    </label>
+  <label>Scale (px/unit):
+    <input type="number" id="scale-input" min="20" max="200" value="50" />
+  </label>
+</div>
+
+
+      <div id="progress-row">
+        <progress id="progress" value="0" max="100"></progress>
+        <div id="time-display">t=0</div>
+      </div>
+
+      <div id="legend"></div>
+
+      <div id="stats">
+        <h3>Aggregate Statistics</h3>
+        <div class="stat-grid">
+          <div>Average Waiting Time: <span id="avgWaiting">—</span></div>
+          <div>Average Turnaround Time: <span id="avgTurnaround">—</span></div>
+          <div>CPU Utilization: <span id="cpuUtil">—</span></div>
+          <div>Throughput: <span id="throughput">—</span></div>
+          <div>Total Idle Time: <span id="idleTime">—</span></div>
+          <div>Total Time (makespan): <span id="totalTime">—</span></div>
+        </div>
+
+        <h3>Per-Process Stats</h3>
+        <table id="proc-stats">
+          <thead>
+            <tr>
+              <th>PID</th>
+              <th>Arrival</th>
+              <th>Burst</th>
+              <th>Start</th>
+              <th>Finish</th>
+              <th>Waiting</th>
+              <th>Turnaround</th>
+              <th>Response</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+
+      <div id="visuals-row">
+        <div id="event-log">
+          <h3>Event Log</h3>
+          <div id="log-entries"></div>
+        </div>
+
+        <div id="chart-area">
+          <h3>Waiting vs Turnaround (per process)</h3>
+          <canvas id="barChart" width="400" height="220"></canvas>
+        </div>
+      </div>
+
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
