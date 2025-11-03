@@ -99,26 +99,5 @@ This simulator helps you **understand and visualize**:
 - [ ] **CSV Import/Export** for process data  
 - [ ] **Keyboard Shortcuts** (Space = Play/Pause, Arrows = Step)
 
----
 
-## 💬 Project Motivation
 
-This simulator was created as part of the **Operating Systems (DA-1)** coursework for **Fall 2025-26**, under the **School of Computer Science & Engineering**.  
-The goal was to make CPU scheduling **interactive, visual, and intuitive** for students learning process management.
-
----
-
-## 👨‍💻 Author
-
-**Tony Stark**  
-📧 *your.email@example.com*  
-💼 Developer | CS Student | Tech Enthusiast  
-
-> “Turning textbook algorithms into visual experiences!”
-
----
-
-## 📜 License
-
-This project is open-source under the **MIT License**.  
-Feel free to fork, modify, and improve it for educational use.
